@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101d2b" />
+  <meta name="description" content="Contact Aj Industrial Pvt Ltd for industrial enquiries and project discussions." />
+  <link rel="icon" type="image/png" href="Visuals/Favicon.png" />
+  <title>Contact Us | Aj Industrial Pvt Ltd</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="contact.css" />
+  <script src="script.js" defer></script>
+  <script src="contact.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html#home" aria-label="Aj Industrial home">
+        <img class="brand-mark" src="Visuals/Favicon.png" alt="Aj Industrial logo" />
+        <span class="brand-name">AJ INDUSTRIAL<small>PRIVATE LIMITED</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#home">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html#capabilities">Capabilities</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#quality">Our Approach</a>
+        <a class="mobile-contact" href="#contact-form">Contact Us</a>
+      </nav>
+      <div class="header-contact">
+        <a href="#contact-form"><span>Contact our team</span></a>
+        <strong>+91 79820 17847</strong>
+      </div>
+      <button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <section class="contact-hero">
+      <div class="wrap">
+        <p class="eyebrow">Aj Industrial Pvt Ltd</p>
+        <h1>Contact Us</h1>
+      </div>
+    </section>
+    <section class="contact-section" id="contact-form">
+      <div class="wrap">
+        <div class="contact-heading">
+          <p class="eyebrow">Start a conversation</p>
+          <h2>Get in touch</h2>
+          <p>Reach out with your questions, feedback, or project enquiry. Our team would be glad to hear from you.</p>
+        </div>
+        <div class="contact-panel">
+          <form class="enquiry-form" id="enquiry-form" novalidate>
+            <div class="form-fields">
+              <label>
+                <span>First name <b>*</b></span>
+                <input name="firstName" type="text" autocomplete="given-name" aria-describedby="first-name-error" required />
+                <small class="form-error" id="first-name-error">Enter a first name.</small>
+              </label>
+              <label>
+                <span>Surname <b>*</b></span>
+                <input name="surname" type="text" autocomplete="family-name" aria-describedby="surname-error" required />
+                <small class="form-error" id="surname-error">Enter a last name.</small>
+              </label>
+              <label>
+                <span>Email <b>*</b></span>
+                <input name="email" type="email" autocomplete="email" aria-describedby="email-error" required />
+                <small class="form-error" id="email-error">Enter a valid email address.</small>
+              </label>
+              <label class="message-field">
+                <span>Message <b>*</b></span>
+                <textarea name="message" rows="5" aria-describedby="message-error" required></textarea>
+                <small class="form-error" id="message-error">Enter a message.</small>
+              </label>
+            </div>
+            <button class="contact-submit" type="submit">Send</button>
+            <p class="form-note" id="form-note">Your details will be added to a Gmail draft for you to review and send.</p>
+          </form>
+          <aside class="contact-details" aria-label="Contact details">
+            <div class="contact-detail">
+              <span class="detail-icon" aria-hidden="true">☎</span>
+              <div><h3>Any questions? Call us</h3><span class="contact-phone">+91 79820 17847</span></div>
+            </div>
+            <div class="contact-detail">
+              <span class="detail-icon" aria-hidden="true">✉</span>
+              <div><h3>Any questions? Email us</h3><span class="contact-email">ajindustrialpvtltd@gmail.com</span></div>
+            </div>
+            <div class="contact-detail address-detail">
+              <span class="detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M24 43s15-17 15-27a15 15 0 1 0-30 0c0 10 15 27 15 27Z" /><circle cx="24" cy="16" r="5" /></svg>
+              </span>
+              <div>
+                <h3>Office address</h3>
+                <address>Neemrana House, Plot No 94, Sector No. 23, Transport Nagar, Nigdi, Pune-411044.</address>
+              </div>
+            </div>
+            <div class="detail-note">
+              <span class="eyebrow">Industrial enquiries</span>
+              <p>Share a few details about your requirement and we’ll be in touch.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="contact-footer">
+    <div class="wrap footer-bottom">
+      <a class="brand" href="index.html#home">
+        <img class="brand-mark" src="Visuals/Favicon.png" alt="Aj Industrial logo" />
+        <span class="brand-name">AJ INDUSTRIAL<small>PRIVATE LIMITED</small></span>
+      </a>
+      <span>© <span id="year"></span> Aj Industrial Pvt Ltd. All rights reserved.</span>
+    </div>
+  </footer>
+</body>
+</html>
