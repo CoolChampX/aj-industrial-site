@@ -19,11 +19,41 @@ if (enquiryForm) {
         'Message:',
         formData.get('message'),
       ].join('\n');
-    const mailtoUrl = new URL('mailto:ajindustrialpvtltd@gmail.com');
-    mailtoUrl.searchParams.set('subject', subject);
-    mailtoUrl.searchParams.set('body', body);
+    const recipient = 'ajindustrialpvtltd@gmail.com';
+    const params = new URLSearchParams({ subject, body }).toString();
+    const mailtoUrl = `mailto:${recipient}?${params}`;
+    const userAgent = navigator.userAgent || '';
+    const isAndroid = /Android/i.test(userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(userAgent)
+      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
     formNote.textContent = 'Opening your email app with the enquiry. Review it and press Send.';
-    window.location.href = mailtoUrl.toString();
+
+    if (isAndroid) {
+      // Explicitly target Gmail on Android, with mailto as a fallback.
+      const intentUrl = `intent://${recipient}?${params}#Intent;scheme=mailto;package=com.google.android.gm;end`;
+      window.location.href = intentUrl;
+      window.setTimeout(() => {
+        window.location.href = mailtoUrl;
+      }, 1200);
+      return;
+    }
+
+    if (isIOS) {
+      // Gmail for iOS registers this URL scheme. If it is unavailable, try
+      // the system's default email app through mailto.
+      const gmailUrl = `googlegmail://co?to=${encodeURIComponent(recipient)}&${params}`;
+      let appOpened = false;
+      const markAppOpened = () => { appOpened = true; };
+      document.addEventListener('visibilitychange', markAppOpened, { once: true });
+      window.location.href = gmailUrl;
+      window.setTimeout(() => {
+        document.removeEventListener('visibilitychange', markAppOpened);
+        if (!appOpened) window.location.href = mailtoUrl;
+      }, 1200);
+      return;
+    }
+
+    window.location.href = mailtoUrl;
   });
 }
