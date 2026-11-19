@@ -22,6 +22,7 @@ if (enquiryForm) {
     const recipient = 'ajindustrialpvtltd@gmail.com';
     const params = new URLSearchParams({ subject, body }).toString();
     const mailtoUrl = `mailto:${recipient}?${params}`;
+    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&${params}`;
     const userAgent = navigator.userAgent || '';
     const isAndroid = /Android/i.test(userAgent);
     const isIOS = /iPhone|iPad|iPod/i.test(userAgent)
@@ -34,7 +35,7 @@ if (enquiryForm) {
       const intentUrl = `intent://${recipient}?${params}#Intent;scheme=mailto;package=com.google.android.gm;end`;
       window.location.href = intentUrl;
       window.setTimeout(() => {
-        window.location.href = mailtoUrl;
+        window.location.href = gmailComposeUrl;
       }, 1200);
       return;
     }
@@ -49,7 +50,7 @@ if (enquiryForm) {
       window.location.href = gmailUrl;
       window.setTimeout(() => {
         document.removeEventListener('visibilitychange', markAppOpened);
-        if (!appOpened) window.location.href = mailtoUrl;
+        if (!appOpened) window.location.href = gmailComposeUrl;
       }, 1200);
       return;
     }
